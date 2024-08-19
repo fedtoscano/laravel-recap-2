@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Kitchen extends Model
 {
     use HasFactory;
+
+    public function recipes(){
+        return $this->belongsToMany(Recipe::class);
+    }
 }

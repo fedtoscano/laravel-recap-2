@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Recipe;
+use App\Models\Kitchen;
 use Faker\Generator as Faker;
 use Illuminate\Database\Seeder;
 
@@ -65,8 +66,7 @@ class RecipeSeeder extends Seeder
             "Tartare di Salmone",
             "Tempura di Pesce"
         ];
-
-
+        $kitchen_ids = Kitchen::all()->pluck('id');
         $pricesList = [
             5.50, 6.00, 6.50, 7.00, 7.50, 8.00, 8.50, 9.00, 9.50, 10.00,
             10.50, 11.00, 11.50, 12.00, 12.50, 13.00, 13.50, 14.00, 14.50, 15.00,
@@ -78,6 +78,7 @@ class RecipeSeeder extends Seeder
         foreach ($recipesList as $recipeName) {
             $newRecipe = new Recipe();
             $newRecipe->name = $recipeName;
+            $newRecipe->kitchen_id = $faker->randomElement($kitchen_ids);
             $newRecipe->price = $faker->randomElement($pricesList);
             $newRecipe->is_spicy = $faker->boolean(30);
             $newRecipe->is_vegan = $faker->boolean(30);
