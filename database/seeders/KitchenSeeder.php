@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Kitchen;
 use Illuminate\Database\Seeder;
 
 class KitchenSeeder extends Seeder
@@ -12,6 +13,14 @@ class KitchenSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        $chineseKitchen = new Kitchen();
+        $chineseKitchen->name = 'chinese';
+        $chineseKitchen->save();
+
+        $japaneseKitchen = new Kitchen();
+        $japaneseKitchen->name = 'japanese';
+        $japaneseKitchen->save();
+
+
     }
 }

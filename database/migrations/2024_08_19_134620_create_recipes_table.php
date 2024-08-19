@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('recipes', function (Blueprint $table) {
             $table->id();
+            $table->string("name")->unique();
+            $table->decimal("price", 4, 2);
+            $table->boolean("is_spicy");
+            $table->boolean("is_vegan");
+
             $table->timestamps();
         });
     }

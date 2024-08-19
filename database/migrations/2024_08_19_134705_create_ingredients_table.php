@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('ingredients', function (Blueprint $table) {
             $table->id();
+            $table->string("name")->unique();
+            $table->decimal('price_kg', 4, 2);
+            $table->string('day_of_replenish');
             $table->timestamps();
         });
     }
