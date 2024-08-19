@@ -1,10 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    {{-- @dd($recipes) --}}
-
-
-
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -52,7 +48,9 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <button>Show</button>
+                                    <button>
+                                        <a href="{{route('admin.recipes.show', $recipe->id)}}">Show</a>
+                                    </button>
                                     <button>Update</button>
                                     <button>Delete</button>
                                 </td>
@@ -63,5 +61,4 @@
             </div>
         </div>
     </div>
-
 @endsection

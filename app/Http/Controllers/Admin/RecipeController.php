@@ -40,6 +40,9 @@ class RecipeController extends Controller
     public function show(string $id)
     {
         //
+        $singleRecipe = Recipe::findOrFail($id);
+        $ingredientList = $singleRecipe->ingredients;
+        return view("admin.recipes.show", compact('singleRecipe', 'ingredientList'));
     }
 
     /**
