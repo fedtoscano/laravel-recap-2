@@ -14,6 +14,6 @@ class Recipe extends Model
     }
 
     public function kitchen(){
-        return $this->hasOne(Kitchen::class);
+        return $this->belongsTo(Kitchen::class);
     }
 }
