@@ -10,6 +10,7 @@
                 <div class="card-body">
                     <h5 class="card-title">{{$singleRecipe->name}}</h5>
                     <h5 class="card-title"><em>{{$singleRecipe->kitchen->name}} cuisine</em></h5>
+                    <h5 class="card-title">{{$singleRecipe->price}} EUR</h5>
                     @if ($singleRecipe->is_vegan==true)
                         <span class="badge rounded-pill text-bg-success">vegan</span>
                     @endif
