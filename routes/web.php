@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\Admin\IngredientController;
+use App\Http\Controllers\Admin\KitchenController;
+use App\Http\Controllers\Admin\RecipeController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +24,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::middleware('auth')->name("admin.")->prefix('admin')
+    ->group(function(){
+        Route::resource('recipes', RecipeController::class);
+        Route::resource('kitchens', KitchenController::class);
+        Route::resource('ingredients', IngredientController::class);
+    });
